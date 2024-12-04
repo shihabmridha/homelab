@@ -1,0 +1,18 @@
+services:
+  ispyagentdvr:
+    image: mekayelanik/ispyagentdvr:latest
+    container_name: ispyagentdvr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - WEBUI_PORT=8090
+      - TZ=Asia/Dhaka
+    volumes:
+      - ${CONFIG_LOCATION}:/AgentDVR/Media/XML
+      - ${MEDIA_LOCATION}:/AgentDVR/Media/WebServerRoot/Media
+      - ${COMMAND_LOCATION}:/AgentDVR/Commands
+    ports:
+      - 8090:8090
+      - 3478:3478/udp
+      - 50000-50010:50000-50010/udp
+    restart: unless-stopped
