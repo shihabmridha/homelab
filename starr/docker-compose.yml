@@ -38,6 +38,7 @@ services:
     volumes:
       - ${ROOT_PATH}/sonarr/config:/config
       - ${SERIES_LOCATION}:/tv
+      - ${ANIME_LOCATION}:/anime
       - ${BITTORRENT_LOCATION}:/downloads
       - ${BITTORRENT_LOCATION}:/Downloads # Needed to suppress the "/Downloads" folder error
     ports:
