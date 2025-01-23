@@ -7,7 +7,7 @@ services:
       - PGID=${GID}
       - TZ=Asia/Dhaka
     volumes:
-      - ${ROOT_PATH}/prowlarr/config:/config
+      - ${PROWLARR_CONFIG_LOCATION}:/config
     ports:
       - 9696:9696
     restart: unless-stopped
@@ -20,7 +20,7 @@ services:
       - PGID=${GID}
       - TZ=Asia/Dhaka
     volumes:
-      - ${ROOT_PATH}/radarr/config:/config
+      - ${RADARR_CONFIG_LOCATION}:/config
       - ${MOVIES_LOCATION}:/media/movies
       - ${BITTORRENT_LOCATION}:/media/downloads
       - ${BITTORRENT_LOCATION}:/downloads # Needed to suppress the "/downloads" folder error
@@ -36,7 +36,7 @@ services:
       - PGID=${GID}
       - TZ=Asia/Dhaka
     volumes:
-      - ${ROOT_PATH}/sonarr/config:/config
+      - ${SONARR_CONFIG_LOCATION}:/config
       - ${SERIES_LOCATION}:/media/tv
       - ${ANIME_LOCATION}:/media/anime
       - ${BITTORRENT_LOCATION}:/media/downloads
@@ -53,7 +53,7 @@ services:
       - PGID=${GID}
       - TZ=Asia/Dhaka
     volumes:
-      - ${ROOT_PATH}/bazarr/config:/config
+      - ${BAZARR_CONFIG_LOCATION}:/config
       - ${SERIES_LOCATION}:/media/tv
       - ${MOVIES_LOCATION}:/media/movies
     ports:
