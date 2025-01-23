@@ -23,7 +23,7 @@ services:
       - ${ROOT_PATH}/radarr/config:/config
       - ${MOVIES_LOCATION}:/media/movies
       - ${BITTORRENT_LOCATION}:/media/downloads
-      - ${BITTORRENT_LOCATION}:/media/Downloads # Needed to suppress the "/Downloads" folder error
+      - ${BITTORRENT_LOCATION}:/Downloads # Needed to suppress the "/Downloads" folder error
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -40,7 +40,7 @@ services:
       - ${SERIES_LOCATION}:/media/tv
       - ${ANIME_LOCATION}:/media/anime
       - ${BITTORRENT_LOCATION}:/media/downloads
-      - ${BITTORRENT_LOCATION}:/media/Downloads # Needed to suppress the "/Downloads" folder error
+      - ${BITTORRENT_LOCATION}:/Downloads # Needed to suppress the "/Downloads" folder error
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -58,17 +58,4 @@ services:
       - ${MOVIES_LOCATION}:/media/movies
     ports:
       - 6767:6767
-    restart: unless-stopped
-
-  jellyseerr:
-    image: fallenbagel/jellyseerr:latest
-    container_name: jellyseerr
-    environment:
-      - LOG_LEVEL=info
-      - TZ=Asia/Dhaka
-      - PORT=5055 #optional
-    ports:
-      - 5055:5055
-    volumes:
-      - /jellyseerr/config:/app/config
     restart: unless-stopped
