@@ -7,8 +7,8 @@ services:
     ports:
       - 3002:8096
     volumes:
-      - ${CONFIG_LOCATION}:/jellyfin/config
-      - ${CACHE_LOCATION}:/jellyfin/cache
+      - ${CONFIG_LOCATION}:/config
+      - ${CACHE_LOCATION}:/cache
       - ${MOVIES_LOCATION}:/media/movies
       - ${SERIES_LOCATION}:/media/series
       - ${ANIME_LOCATION}:/media/anime
