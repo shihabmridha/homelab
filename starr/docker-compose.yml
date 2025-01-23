@@ -55,6 +55,7 @@ services:
     volumes:
       - ${BAZARR_CONFIG_LOCATION}:/config
       - ${SERIES_LOCATION}:/media/tv
+      - ${ANIME_LOCATION}:/media/anime
       - ${MOVIES_LOCATION}:/media/movies
     ports:
       - 6767:6767
