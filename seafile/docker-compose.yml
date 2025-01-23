@@ -39,6 +39,7 @@ services:
       - memcached
     networks:
       - seafile-net
+    restart: unless-stopped
 
 networks:
   seafile-net:
