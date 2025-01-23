@@ -1,0 +1,28 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    ports:
+      - 3002:8096
+    volumes:
+      - ${CONFIG_LOCATION}:/jellyfin/config
+      - ${CACHE_LOCATION}:/jellyfin/cache
+      - ${MOVIES_LOCATION}:/jellyfin/movies
+      - ${SERIES_LOCATION}:/jellyfin/series
+      - ${ANIME_LOCATION}:/jellyfin/anime
+    restart: unless-stopped
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=info
+      - TZ=Asia/Dhaka
+      - PORT=5055 #optional
+    ports:
+      - 5055:5055
+    volumes:
+      - /jellyseerr/config:/app/config
+    restart: unless-stopped
