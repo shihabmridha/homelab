@@ -9,9 +9,9 @@ services:
     volumes:
       - ${CONFIG_LOCATION}:/jellyfin/config
       - ${CACHE_LOCATION}:/jellyfin/cache
-      - ${MOVIES_LOCATION}:/jellyfin/movies
-      - ${SERIES_LOCATION}:/jellyfin/series
-      - ${ANIME_LOCATION}:/jellyfin/anime
+      - ${MOVIES_LOCATION}:/media/movies
+      - ${SERIES_LOCATION}:/media/series
+      - ${ANIME_LOCATION}:/media/anime
     restart: unless-stopped
 
   jellyseerr:
@@ -24,5 +24,5 @@ services:
     ports:
       - 5055:5055
     volumes:
-      - /jellyseerr/config:/app/config
+      - ${JELLYSEERR_CONFIG_LOCATION}:/app/config
     restart: unless-stopped

@@ -21,9 +21,9 @@ services:
       - TZ=Asia/Dhaka
     volumes:
       - ${ROOT_PATH}/radarr/config:/config
-      - ${MOVIES_LOCATION}:/movies
-      - ${BITTORRENT_LOCATION}:/downloads
-      - ${BITTORRENT_LOCATION}:/Downloads # Needed to suppress the "/Downloads" folder error
+      - ${MOVIES_LOCATION}:/media/movies
+      - ${BITTORRENT_LOCATION}:/media/downloads
+      - ${BITTORRENT_LOCATION}:/media/Downloads # Needed to suppress the "/Downloads" folder error
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -37,10 +37,10 @@ services:
       - TZ=Asia/Dhaka
     volumes:
       - ${ROOT_PATH}/sonarr/config:/config
-      - ${SERIES_LOCATION}:/tv
-      - ${ANIME_LOCATION}:/anime
-      - ${BITTORRENT_LOCATION}:/downloads
-      - ${BITTORRENT_LOCATION}:/Downloads # Needed to suppress the "/Downloads" folder error
+      - ${SERIES_LOCATION}:/media/tv
+      - ${ANIME_LOCATION}:/media/anime
+      - ${BITTORRENT_LOCATION}:/media/downloads
+      - ${BITTORRENT_LOCATION}:/media/Downloads # Needed to suppress the "/Downloads" folder error
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -54,8 +54,8 @@ services:
       - TZ=Asia/Dhaka
     volumes:
       - ${ROOT_PATH}/bazarr/config:/config
-      - ${SERIES_LOCATION}:/tv
-      - ${MOVIES_LOCATION}:/movies
+      - ${SERIES_LOCATION}:/media/tv
+      - ${MOVIES_LOCATION}:/media/movies
     ports:
       - 6767:6767
     restart: unless-stopped
