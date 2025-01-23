@@ -4,8 +4,9 @@ services:
     container_name: convertx
     restart: unless-stopped
     ports:
-      - "3005:3000"
+      - 3005:3000
     environment:
       - JWT_SECRET=${JWT_SECRET}
+      - HTTP_ALLOWED=true
     volumes:
       - ${DATA_LOCATION}:/app/data
