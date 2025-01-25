@@ -4,6 +4,10 @@ services:
     container_name: unmanic
     devices:
       - /dev/dri:/dev/dri
+    deploy:
+      resources:
+        limits:
+          cpus: 4
     environment:
       - PUID=${UID}
       - PGID=${GID}
@@ -17,4 +21,3 @@ services:
     ports:
       - 8888:8888
     restart: unless-stopped
-
