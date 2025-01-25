@@ -1,0 +1,20 @@
+services:
+  unmanic:
+    image: josh5/unmanic:latest
+    container_name: unmanic
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      - PUID=${UID}
+      - PGID=${GID}
+      - TZ=Asia/Dhaka
+    volumes:
+      - ${UNMANIC_CONFIG_LOCATION}:/config
+      - ${UNMANIC_CACHE_LOCATION}:/tmp/unmanic
+      - ${MOVIES_LOCATION}:/library/movies
+      - ${SERIES_LOCATION}:/library/series
+      - ${ANIME_LOCATION}:/library/anime
+    ports:
+      - 8888:8888
+    restart: unless-stopped
+
